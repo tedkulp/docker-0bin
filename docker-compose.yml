@@ -1,0 +1,19 @@
+version: "3.7"
+
+services:
+  app:
+    environment:
+      DISPLAY_COUNTER: 'false'
+      MENU: >-
+        [
+          ["Home", "/"]
+        ]
+    image: gabe565/pastebin
+    build: .
+    restart: unless-stopped
+    volumes:
+      - data:/data
+      - ./views:/app/zerobin/views:ro
+
+volumes:
+  data:
