@@ -11,7 +11,7 @@ RUN set -x \
     && apk add --no-cache --virtual .build-dependencies \
         curl \
         tar \
-    && curl -sLO https://github.com/sametmax/0bin/tarball/master \
+    && curl -sLO https://github.com/gabe565/0bin/tarball/master \
     && tar -xzf master --strip-components=1 \
     && rm master \
     && apk del .build-dependencies
