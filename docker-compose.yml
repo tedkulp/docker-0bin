@@ -8,7 +8,7 @@ services:
         [
           ["Home", "/"]
         ]
-    image: gabe565/pastebin
+    image: gabe565/0bin
     build: .
     restart: unless-stopped
     volumes:
