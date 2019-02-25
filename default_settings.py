@@ -81,3 +81,10 @@ MAX_SIZE = calc_eval(os.getenv('MAX_SIZE', 1024 * 500))
 # total number of unique pastes can be calculated as 2^(6*PASTE_ID_LENGTH)
 # for PASTE_ID_LENGTH=8, for example, it's 2^(6*8) = 281 474 976 710 656
 PASTE_ID_LENGTH = os.getenv('PASTE_ID_LENGTH', 8)
+
+# if burn_after_reading is selected
+# if this pageload is seconds after the creation date,
+# we don't delete the paste because it means it's the redirection
+# to the paste that happens during the paste creation
+# this configures the number of seconds to wait.
+BURN_ACTIVATION_SECONDS = os.getenv('BURN_ACTIVATION_SECONDS', 10)
