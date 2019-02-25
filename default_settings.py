@@ -80,11 +80,11 @@ MAX_SIZE = calc_eval(os.getenv('MAX_SIZE', 1024 * 500))
 # length of base64-like paste-id string in the url, int from 4 to 27 (length of sha1 digest)
 # total number of unique pastes can be calculated as 2^(6*PASTE_ID_LENGTH)
 # for PASTE_ID_LENGTH=8, for example, it's 2^(6*8) = 281 474 976 710 656
-PASTE_ID_LENGTH = os.getenv('PASTE_ID_LENGTH', 8)
+PASTE_ID_LENGTH = calc_eval(os.getenv('PASTE_ID_LENGTH', 8))
 
 # if burn_after_reading is selected
 # if this pageload is seconds after the creation date,
 # we don't delete the paste because it means it's the redirection
 # to the paste that happens during the paste creation
 # this configures the number of seconds to wait.
-BURN_ACTIVATION_SECONDS = os.getenv('BURN_ACTIVATION_SECONDS', 10)
+BURN_ACTIVATION_SECONDS = calc_eval(os.getenv('BURN_ACTIVATION_SECONDS', 10))
