@@ -88,3 +88,9 @@ PASTE_ID_LENGTH = calc_eval(os.getenv('PASTE_ID_LENGTH', 8))
 # to the paste that happens during the paste creation
 # this configures the number of seconds to wait.
 BURN_ACTIVATION_SECONDS = calc_eval(os.getenv('BURN_ACTIVATION_SECONDS', 10))
+
+# burn_after_reading will set the keep alive flag if the current user agent
+# is in this list.
+# WARNING: If you add any entries to this list, someone could maliciously
+# set their user agent to avoid burn_after_reading from working correctly.
+KEEP_ALIVE_USER_AGENTS = json.loads(os.getenv('KEEP_ALIVE_USER_AGENTS', '[]'))
