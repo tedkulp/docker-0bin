@@ -1,18 +1,10 @@
-FROM python:3.6-alpine
+FROM python:3.7
 
 WORKDIR /app
 
-RUN set -x \
-    && pip install --no-cache-dir --disable-pip-version-check \
-        bottle \
-        'cherrypy<9' \
-        clize \
-        lockfile
-
-COPY app/ ./
-
-COPY --chown=root:root default_settings.py /app/zerobin
+RUN python -m pip install zerobin --user
 
 EXPOSE 80
 VOLUME /data
-CMD ["python", "zerobin.py"]
+
+CMD ["python", "-m", "zerobin", "--port", "80", "--host", "0.0.0.0", "--data-dir", "/data"]
